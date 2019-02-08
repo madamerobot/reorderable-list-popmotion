@@ -27,11 +27,16 @@ code {
   max-height: 70%;
 }
 
+.headline {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .box {
+  font-family: 'Open Sans', sans-serif;
   cursor: pointer;
   position: relative;
-  background: pink;
-  width: 200px;
+  background: #e5eeff;
+  min-width: 250px;
   height: 50px;
   align-items: center;
   justify-content: center;
@@ -42,6 +47,10 @@ code {
 }
 
 .prio-label {
+  color: #ffff4f;
+  font-family: 'Staatliches', cursive;
+  font-size: 30px;
+  left: 10px;
   position: absolute;
-  left: 20px;
+  padding-right: 14px;
 }

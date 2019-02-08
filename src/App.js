@@ -4,8 +4,15 @@ import posed, { PoseGroup } from 'react-pose'
 //Defining Pose Item with Spring Animation config
 const Item = posed.li({
   draggable: 'y',
-  init: { scale: 1 },
-  drag: { scale: 1.2 },
+  init: { 
+    scale: 1,
+    backgroundColor: '#e5eeff'
+  },
+  drag: { 
+    scale: 1.2,
+    boxShadow: '6px 7px 38px 0px rgba(237,237,237,0.47)',
+    backgroundColor: '#d6e4ff'
+  },
   //Transition refers to PoseGroup
   flip: {
     transition: { type: 'spring', stiffness: 30, damping: 6 }
@@ -21,10 +28,11 @@ class App extends Component {
       newRow: null,
       rowMap: [],
       items: [
-        'Wash panties',
         'Call Mama',
         'Tidy up drawers',
-        'Call Oma'
+        'But make-up remover',
+        'Call Oma',
+        'Prep Rebecca birthday gift'
       ]
     }
   }
@@ -65,8 +73,9 @@ class App extends Component {
 
   onDragEnd(e) {
     let newRow = this.trackRow(e)
+    let draggedItem = this.state.draggedItem
     if (newRow !== this.state.draggedItem) {
-      this.reshuffleArray(this.state.draggedItem, newRow)
+      this.reshuffleArray(draggedItem, newRow)
     }
   }
 
@@ -101,7 +110,8 @@ class App extends Component {
                 onDragEnd={(e) => this.onDragEnd(e)}
                 onDragStart={(e) => this.onDragStart(e)}
                 >
-                <span className="prio-label">{index + 1}</span>{item}
+                <div className="prio-label">{index + 1}</div>
+                <div className="tag">{item}</div>
               </Item>
             ))}
           </PoseGroup>
