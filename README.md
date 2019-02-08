@@ -1,7 +1,7 @@
-#Re-orderable list with Popmotion Pose
+# Re-orderable list with Popmotion Pose
 ___
 
-###How to: Run this app
+### How to: Run this app
 
 ```
 git clone <this GitHub Repo link>
@@ -10,16 +10,16 @@ npm start
 ```
 You should be able to access your app on https://localhost:3000
 
-###Challenge: Spring Physics Animation
+### Challenge: Spring Physics Animation
 Build a list based on Cheng Lous' [React Motion Demo](http://chenglou.github.io/react-motion/demos/demo8-draggable-list/) (see below) which re-orders itself on drag-and-drop and animates to the new position via spring-style animation.
 
 ![Draggable List by Cheng Lous](https://duaw26jehqd4r.cloudfront.net/items/2g1T200O1J2G0F3S1B3G/Screen%20Recording%202019-02-08%20at%2003.37%20PM.gif)
 [ Reference animation ]
 
-###Technology: React & Popmotion Pose
+### Technology: React & Popmotion Pose
 Instead of React Motion, we used Popmotion Pose as this is a library we're working with more regularily at YM. The app itself was bootstrapped with create-react-app.
 
-###Building Blocks: 99 Problems
+### Building Blocks: 99 Problems
 To make the interaction work as above, we have to solve a handful of problems.
 
 * On drag of any box, its y-Position must equal mouseY
