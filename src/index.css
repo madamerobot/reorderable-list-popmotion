@@ -12,3 +12,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.center-container {
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.list-wrapper {
+  max-height: 70%;
+}
+
+.box {
+  cursor: pointer;
+  position: relative;
+  background: pink;
+  width: 200px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.prio-label {
+  position: absolute;
+  left: 20px;
+}

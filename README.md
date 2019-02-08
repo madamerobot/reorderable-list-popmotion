@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Re-orderable list with Popmotion Pose
+___
 
-## Available Scripts
+###How to: Run this app
 
-In the project directory, you can run:
+```
+git clone <this GitHub Repo link>
+npm install
+npm start
+```
+You should be able to access your app on https://localhost:3000
 
-### `npm start`
+###Challenge: Spring Physics Animation
+Build a list based on Cheng Lous' [React Motion Demo](http://chenglou.github.io/react-motion/demos/demo8-draggable-list/) (see below) which re-orders itself on drag-and-drop and animates to the new position via spring-style animation.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Draggable List by Cheng Lous](https://duaw26jehqd4r.cloudfront.net/items/2g1T200O1J2G0F3S1B3G/Screen%20Recording%202019-02-08%20at%2003.37%20PM.gif)
+[ Reference animation ]
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+###Technology: React & Popmotion Pose
+Instead of React Motion, we used Popmotion Pose as this is a library we're working with more regularily at YM. The app itself was bootstrapped with create-react-app.
 
-### `npm test`
+###Building Blocks: 99 Problems
+To make the interaction work as above, we have to solve a handful of problems.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* On drag of any box, its y-Position must equal mouseY
+* On drag, box must scale (1.2) and get a box-shadow
+* We must detect were we are dropping the dragged box
+* We must reshuffle all boxes to accomodate new positions
+* All items have to animate to their new positions
