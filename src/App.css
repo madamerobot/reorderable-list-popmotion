@@ -8,12 +8,19 @@
   flex-direction: column;
 }
 
+.list-wrapper {
+  max-height: 70%;
+  /* border: solid 2px blue; */
+}
+
 .box {
   cursor: pointer;
+  /* position: absolute; */
   background: pink;
   width: 150px;
   height: 50px;
   align-items: center;
   justify-content: center;
   display: flex;
+  margin-bottom: 10px;
 }
