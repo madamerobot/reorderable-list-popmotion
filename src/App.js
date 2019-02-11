@@ -10,14 +10,20 @@ const Item = posed.li({
     zIndex: 1
   },
   drag: { 
-    scale: 1.2,
+    scale: 1.12,
     boxShadow: '6px 7px 38px 0px rgba(237,237,237,0.47)',
     backgroundColor: '#d6e4ff',
     zIndex: 10
   },
   //Flip transition refers to PoseGroup
   flip: {
-    transition: { type: 'spring', stiffness: 30, damping: 6 }
+    transition: { 
+      type: 'spring', 
+      stiffness: 30, 
+      damping: 8,
+      restDelta: 0.5,
+      restSpeed: 10 
+    }
   }
 })
 
@@ -25,9 +31,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isPressed: false,
       draggedItem: null,
-      newRow: null,
       rowMap: [],
       items: [
         'Call Mama',
@@ -92,6 +96,10 @@ class App extends Component {
     })
   }
 
+  onValueChange(e) {
+    console.log(e)
+  }
+
   onDragEnd(e) {
     let newRow = this.trackRow(e)
     if (newRow !== this.state.draggedItem) {
@@ -116,8 +124,9 @@ class App extends Component {
                 key={item}
                 onDragEnd={(e) => this.onDragEnd(e)}
                 onDragStart={(e) => this.onDragStart(e)}
+                onDragOver={(e) => console.log('Hi')}
                 >
-                <div className="prio-label">{index + 1}</div>
+                <div className="prio-label" data-tag={index}>{index + 1}</div>
                 <div className="tag" data-tag={index}>{item}</div>
               </Item>
             ))}
