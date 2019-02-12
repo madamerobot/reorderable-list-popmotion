@@ -76,9 +76,14 @@ body {
   position: relative;
 }
 
-.pen {
+.hidden {
+  width: 0;
+}
+
+.show {
   width: 50px;
   position: absolute;
+  left: 0;
   top: 20%;
 }
 

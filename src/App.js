@@ -39,6 +39,7 @@ class App extends Component {
     super(props)
     this.state = {
       draggedItem: null,
+      penVisible: true,
       rowMap: [],
       taskInput: '',
       items: [ 'Call Mama', 'Call Oma', 'Wash socks', 'Plan trip']
@@ -98,7 +99,8 @@ class App extends Component {
       newItems.push(this.state.taskInput)
       this.setState({
         taskInput: '',
-        items: newItems
+        items: newItems,
+        penVisible: true
       })
       this.forceUpdate()
       this.updateRowMap()
@@ -131,7 +133,8 @@ class App extends Component {
 
   updateInputValue(e) {
     this.setState({
-      taskInput: e.target.value
+      taskInput: e.target.value,
+      penVisible: false
     })
   }
 
@@ -144,7 +147,9 @@ class App extends Component {
             <h1 className="header">DO IT</h1>
           </div>
           <div className="input-container">
-            <img className="pen" src="/assets/pen-sml.svg" alt="pen"></img>
+            <img 
+              className={this.state.penVisible ? "show" : "hidden"} src="/assets/pen-sml.svg" alt="pen" >
+            </img>
             <input 
               value={this.state.inputValue} 
               onChange={(e) => this.updateInputValue(e)}
