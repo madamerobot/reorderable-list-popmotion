@@ -169,7 +169,7 @@ class App extends Component {
             ))}
           </PoseGroup>
         </ul>
-        <div className="bucket"></div>
+        {/* <div className="bucket"></div> */}
         </div>
       </div>
     )

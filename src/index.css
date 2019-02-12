@@ -10,8 +10,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 80%;
-  max-width: 1000px;
+  width: 100%;
+  /* width: 80%; */
+  /* max-width: 1000px; */
   height: 100vh;
   margin: 0 auto;
   font-family: 'Germania One', cursive;
@@ -87,6 +88,8 @@ input {
   height: 50px;
   border: none;
   border-bottom: 2px solid #079E27;
+  color: #079E27;
+  font-family: 'Germania One', cursive;
   font-size: 43px;
   background: none;
   padding-bottom: 12px;
@@ -98,7 +101,7 @@ input:focus {
 
 .bucket {
   height: 6%;
-  width: 80%;
+  width: 50%;
   max-width: 1000px;
   background: #FAC71D;
   position: absolute;
