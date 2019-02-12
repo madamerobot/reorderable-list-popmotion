@@ -1,57 +1,106 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .center-container {
-  width: 80%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
   flex-direction: column;
+  width: 80%;
+  max-width: 1000px;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: 'Germania One', cursive;
+  background: #EBB4CB;
+  color: #079E27;
+}
+
+.header-container {
+  position: relative;
+  height: 100px;
+  width: 300px;
+  margin-bottom: 60px;
+}
+
+.header {
+  font-size: 64px;
+  margin: 0;
+  top: 14%;
+}
+
+.header, .blob {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
 }
 
 .list-wrapper {
+  position: relative;
   max-height: 70%;
-}
-
-.headline {
-  font-family: 'Open Sans', sans-serif;
+  padding-inline-start: 0;
 }
 
 .box {
-  font-family: 'Open Sans', sans-serif;
-  cursor: pointer;
-  position: relative;
-  background: #e5eeff;
-  min-width: 250px;
-  height: 50px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #079E27;
+  background: #EBB4CB;
+  font-size: 36px;
+  min-width: 250px;
+  height: 50px;
   margin-bottom: 20px;
   padding: 10px;
-  border-radius: 10px;
   user-select: none; 
 }
 
-.prio-label {
+/* .prio-label {
   color: #ffff4f;
   font-family: 'Staatliches', cursive;
   font-size: 30px;
   left: 10px;
   position: absolute;
   padding-right: 14px;
+} */
+
+.input-container {
+  position: relative;
+}
+
+.pen {
+  width: 50px;
+  position: absolute;
+  top: 20%;
+}
+
+input {
+  width: 250px;
+  margin-bottom: 30px;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #079E27;
+  font-size: 43px;
+  background: none;
+  padding-bottom: 12px;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.bucket {
+  height: 6%;
+  width: 80%;
+  max-width: 1000px;
+  background: #FAC71D;
+  position: absolute;
+  bottom: 0;
 }

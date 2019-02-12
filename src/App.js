@@ -6,14 +6,21 @@ const Item = posed.li({
   draggable: 'y',
   init: { 
     scale: 1,
-    backgroundColor: '#e5eeff',
+    backgroundColor: '#EBB4CB',
     zIndex: 1
   },
   drag: { 
     scale: 1.12,
     boxShadow: '6px 7px 38px 0px rgba(237,237,237,0.47)',
-    backgroundColor: '#d6e4ff',
-    zIndex: 10
+    backgroundColor: '#DFACC1',
+    zIndex: 10,
+    // transition: {
+    //   scale: { 
+    //     type: 'spring', 
+    //     stiffness: 150,
+    //     damping: 50
+    //   }
+    // },
   },
   //Flip transition refers to PoseGroup
   flip: {
@@ -33,13 +40,8 @@ class App extends Component {
     this.state = {
       draggedItem: null,
       rowMap: [],
-      items: [
-        'Call Mama',
-        'Tidy up drawers',
-        'Buy make-up remover',
-        'Call Oma',
-        'Prep Rebecca birthday gift'
-      ]
+      taskInput: '',
+      items: [ 'Call Mama', 'Call Oma', 'Wash socks', 'Plan trip']
     }
   }
 
@@ -75,8 +77,8 @@ class App extends Component {
     )
   }
 
-  //Creating map of rows with top/bottom y-values to later match mouseY
-  componentDidMount() {
+   //Creating map of rows with top/bottom y-values to match mouseY
+  updateRowMap() {
     const allItems = [].slice.call(document.querySelectorAll('.box'))
     let rowMap = []
     allItems.forEach((item, index) => {
@@ -90,14 +92,31 @@ class App extends Component {
     })
   }
 
+  updateItems(e) {
+    if (e.key === 'Enter'){
+      let newItems = this.state.items
+      newItems.push(this.state.taskInput)
+      this.setState({
+        taskInput: '',
+        items: newItems
+      })
+      this.forceUpdate()
+      this.updateRowMap()
+    }
+  }
+
+  deleteItem(e) {
+    console.log(e.target.dataset.tag)
+  }
+
+  componentDidMount() {
+    this.updateRowMap()
+  }
+
   onDragStart(e) {
     this.setState({
       draggedItem: parseInt(e.target.dataset.tag)
     })
-  }
-
-  onValueChange(e) {
-    console.log(e)
   }
 
   onDragEnd(e) {
@@ -110,10 +129,28 @@ class App extends Component {
     })
   }
 
+  updateInputValue(e) {
+    this.setState({
+      taskInput: e.target.value
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <div className="center-container">
+          <div className="header-container">
+            <img className="blob" src="/assets/blob.svg" alt="blob"></img>
+            <h1 className="header">DO IT</h1>
+          </div>
+          <div className="input-container">
+            <img className="pen" src="/assets/pen-sml.svg" alt="pen"></img>
+            <input 
+              value={this.state.inputValue} 
+              onChange={(e) => this.updateInputValue(e)}
+              onKeyPress={(e) => this.updateItems(e)}>
+            </input>
+          </div>
           <ul className="list-wrapper">
           <PoseGroup>
             {this.state.items.map((item, index) => (
@@ -124,14 +161,15 @@ class App extends Component {
                 key={item}
                 onDragEnd={(e) => this.onDragEnd(e)}
                 onDragStart={(e) => this.onDragStart(e)}
-                onDragOver={(e) => console.log('Hi')}
                 >
-                <div className="prio-label" data-tag={index}>{index + 1}</div>
+                {/* <div className="prio-label" data-tag={index}>{index + 1}</div> */}
                 <div className="tag" data-tag={index}>{item}</div>
+                {/* <div className="close-x" data-tag={index} onClick={(e) => this.deleteItem(e)}>x</div> */}
               </Item>
             ))}
           </PoseGroup>
         </ul>
+        <div className="bucket"></div>
         </div>
       </div>
     )
